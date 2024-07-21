@@ -64,7 +64,7 @@ func main() {
 		log.Fatal("could not parse config file: ", err)
 	} else {
 		addr := fmt.Sprintf("%s:%d", cfg.Host, cfg.Port)
-		if password != "" {
+		if cfg.Password != "" {
 			handler = &sshHandler{addr: addr, user: cfg.User, secret: cfg.Password}
 		} else {
 			handler = &sshHandler{addr: addr, user: cfg.User, keyfile: cfg.IdentityFile}
